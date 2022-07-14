@@ -1,0 +1,22 @@
+name: hello-php by PHP Composer
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: インストールパッケージ
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y python3
+    - name: 実行 hello-python
+      run: python3 hello-python.py
